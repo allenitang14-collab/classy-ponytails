@@ -1,2 +1,76 @@
 # classy-ponytails
 client project
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Web App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="card">
+    <h1>Counter App</h1>
+    <p id="count">0</p>
+    <div class="buttons">
+      <button id="decrease">−</button>
+      <button id="reset">Reset</button>
+      <button id="increase">+</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: system-ui, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background: #fff;
+  padding: 2rem 3rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+h1 { margin-bottom: 1rem; color: #333; }
+
+#count {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #667eea;
+  margin: 1rem 0;
+}
+
+.buttons { display: flex; gap: 10px; justify-content: center; }
+
+button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #667eea;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.2s;
+}
+
+button:hover { background: #556cd6; }
+button:active { transform: scale(0.95); }
+let count = 0;
+const countEl = document.getElementById("count");
+
+function update() {
+  countEl.textContent = count;
+}
+
+document.getElementById("increase").onclick = () => { count++; update(); };
+document.getElementById("decrease").onclick = () => { count--; update(); };
+document.getElementById("reset").onclick    = () => { count = 0; update(); };
